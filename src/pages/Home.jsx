@@ -1,5 +1,9 @@
 import React, {useEffect, useRef} from 'react'
 
+import { motion } from 'framer-motion'
+
+import { useInView } from 'react-intersection-observer'
+
 import globe from '../img/globe.png'
 
 // import icons for html css js react, nodejs and firebase from react-icons
@@ -11,8 +15,12 @@ import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs } from "react-icons/fa"
 import { SiFirebase } from "react-icons/si"
 import { IoLogoJavascript } from "react-icons/io5"
 
+import '../styles/home.css'
 
-export default function Home() {
+
+export default function Home( {projects} ) {
+
+
 
   let iconSize = 45
 
@@ -54,12 +62,20 @@ export default function Home() {
       <section className='home-page-hero' style={{position: 'relative'}}>
         <canvas ref={canvasRef} style={{ position: 'absolute', zIndex: 1, width: '100%', height: '100%' }}/>
         <div className='hero-text'>
-          <h2>
+          <motion.h2
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2 }}
+          >
             Professional
-          </h2>
-          <h2>
+          </motion.h2>
+          <motion.h2
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 2 }}
+            transition={{ duration: 5 }}
+          >
             Web Development
-          </h2>
+          </motion.h2>
         </div>
         <div className="icons">
           <FaHtml5 size={iconSize} className='html-icon' />
@@ -74,20 +90,39 @@ export default function Home() {
 
       </section>
 
-      <section>
-        <div className='home-page-about'>
-          <div className='about-text'>
-            <h2>About Me</h2>
-            <p>
-            I am a full stack Web developer passionate about crafting meaningful digital experiences. Committed to continuous learning and creative problem-solving. Let's build the web together.
-            </p>
-            <br />
-            <p>
-            Transforming your designs into dynamic, operational websites is my expertise. Crafting visually appealing website designs is also within my skill set. I offer support in hosting your website and establishing a personalized domain.
-            </p>
-          </div>
-          {/* <img src={globe} alt="" /> */}
+      <section className='latest-projects'>
+
+        {/* <h2>lates</h2> */}
+
+        {/* card to show project  */}
+
+        <div className="projects-container">
+          {projects.slice(0, 3).map((project, index) => {
+          const { ref, inView } = useInView({
+            triggerOnce: true,
+            threshold: 0.1,
+          });
+
+          return (
+            <motion.div
+              key={index}
+              className="project-card"
+              ref={ref}
+              initial={{ opacity: 0, y: 50 }}
+              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{ duration: 1 }}
+            >
+              <img src={project.img} alt={project.name} />
+              <div className="project-info">
+                <h3>{project.name}</h3>
+                <p>{project.description}</p>
+                <a href={project.link} target='_blank' rel='noopener noreferrer'>View</a>
+              </div>
+            </motion.div>
+          );
+        })}
         </div>
+
       </section>
     </main>
   )

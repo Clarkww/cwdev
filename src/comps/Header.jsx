@@ -17,22 +17,24 @@ export default function Header() {
     const [showMobileMenu, setShowMobileMenu] = useState(false)
 
     let toggleMobileMenu = () => {
-        console.log('clicked')
+        // console.log('clicked')
+        
         setShowMobileMenu(!showMobileMenu)
     }
     
     
 
-    return (
+    return ( 
         <header>
             <div className="header-inner">
                 <Link to='/'><img src={logo} className='header-logo' alt="" /></Link>
-                <nav className='desktop-nav'>
+                {/* <nav className='desktop-nav'>
                     <ul>
+                        <li><Link to='/about'>About</Link></li>
                         <li ><Link to="/projects" >Projects</Link></li>
                         <li><Link to="/contact" >Contact</Link></li>
                     </ul>
-                </nav>
+                </nav> */}
 
                 
                 <div className="mobile-menu" onClick={toggleMobileMenu}>
@@ -47,6 +49,7 @@ export default function Header() {
             </div>
                         <div className={`mobile-nav ${showMobileMenu ? 'show' : 'hide'}`}>
                             <ul>
+                                <li><Link to='/about' onClick={toggleMobileMenu}>About</Link></li>
                                 <li><Link to="/projects" onClick={toggleMobileMenu}>Projects</Link></li>
                                 <li><Link to="/contact" onClick={toggleMobileMenu}>Contact</Link></li>
                             </ul>
