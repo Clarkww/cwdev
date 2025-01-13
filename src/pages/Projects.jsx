@@ -11,20 +11,6 @@ export default function Projects( {projects} ) {
       <h1>Projects</h1>
       <p>Here are some of the projects I've worked on:</p>
       <div className="projects-container">
-        {/* <div className="project">
-          <img src={crackTheCode} className='project-img' alt="" />
-          <div className="project-info">
-            <h2>Crack The Code</h2>
-            <p>A project made for a client using Vanilla JS and HTML Cnavas</p>
-            <div className="links">
-              <a href="">View</a>
-              <br />
-              <a href="">Repo</a>
-            </div>
-          </div>
-
-          
-        </div> */}
 
         {projects.map((project, index) => {
           return (
@@ -43,8 +29,6 @@ export default function Projects( {projects} ) {
           )
         }
         )}
-
-
 
       </div>
     </main>

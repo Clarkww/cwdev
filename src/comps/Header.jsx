@@ -47,6 +47,8 @@ export default function Header() {
                     </div>
                 </div>
             </div>
+
+            {/* TODO: make animation smoother */}
                         <div className={`mobile-nav ${showMobileMenu ? 'show' : 'hide'}`}>
                             <ul>
                                 <li><Link to='/about' onClick={toggleMobileMenu}>About</Link></li>
