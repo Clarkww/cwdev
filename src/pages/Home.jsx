@@ -108,7 +108,7 @@ export default function Home({ projects }) {
         {/* <meta property="og:image" content="URL_TO_YOUR_SOCIAL_SHARE_IMAGE" /> */}
         <meta property="og:url" content="https://cw-dev-01.web.app/" />
         <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
+        {/* <meta name="twitter:card" content="summary_large_image" /> */}
         <meta name="twitter:title" content="CWdev | Home" />
         <meta name="twitter:description" content="Explore my web development expertise and latest projects." />
         <meta name="twitter:image" content="URL_TO_YOUR_TWITTER_IMAGE" />

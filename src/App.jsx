@@ -28,12 +28,34 @@ import justEat from './img/get-data-from-any-website.png'
 import mageInv from './img/mage-inv.png'
 import shapeAttack from './img/shape-attack.png'
 import mageInv2 from './img/mage-inv2.png'
+import youtube from './img/youtube.png'
 
 import froppy from './img/froppy.png'
 
 function App() {
 
   let projects = [
+    {
+      name: 'Node.js ai Youtube Shorts generator',
+      description: 'A personal project, a node.js app that generates youtube shorts using gemini 1.5 to generate the script, google text to speech API to genearte the audio and pixaBay API to source images. This script then puts them together to make a full video',
+      link: 'https://www.youtube.com/@learnSomeFactsBro9z5',
+      repo: '',
+      img: youtube
+    },
+    {
+      name: 'Shape Attack',
+      description: 'A browser based game built with HTML, CSS and JS',
+      link: 'https://clarkww.github.io/shape-game/',
+      repo: '',
+      img: shapeAttack
+    },
+    {
+      name: 'Mind Matters',
+      description: 'A mental health app built with HTML, CSS, JS and Firebase. The client wanted me to add extra functionality to their existing site, I built the To-do list, Sleep calculator and the habit tracker',
+      link: 'https://testz-a521c.web.app/',
+      repo: '',
+      img: mindMatters
+    },
     {
       name: 'Froppy Frog',
       description: 'completed a frogger clone for a client using HTML, CSS and JS',
@@ -45,20 +67,6 @@ function App() {
       description: 'A personal project thats is a work in progress, its a browser based game built with HTML canvas and JS',
       link: 'https://clarkww.github.io/mage-inv-2/',
       img: mageInv2
-    },
-    {
-      name: 'Shape Attack',
-      description: 'A browser based game built with HTML, CSS and JS',
-      link: 'https://clarkww.github.io/shape-game/',
-      repo: '',
-      img: shapeAttack
-    },
-    {
-      name: 'Mind Matters',
-      description: 'A mental health app built with HTML, CSS, JS and Firebase',
-      link: 'https://testz-a521c.web.app/',
-      repo: '',
-      img: mindMatters
     },
     {
       name: 'Crack The Code',

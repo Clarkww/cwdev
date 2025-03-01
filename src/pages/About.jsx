@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 
 import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaPlus, FaMinus} from "react-icons/fa"
 
+import { Helmet } from 'react-helmet'
+
 // we need plus and minus symbols from react icons
 
 
@@ -48,6 +50,42 @@ export default function About() {
 
 
   return (
+
+    <>
+    <Helmet>
+      <title>About Me | CWdev</title>
+      <meta 
+        name="description" 
+        content="Learn about my journey as a web developer, my skills in HTML, CSS, JavaScript, React, and Firebase, and my experience in front-end and mobile app development." 
+      />
+      <meta 
+        name="keywords" 
+        content="about CWdev, web developer, frontend developer, React, JavaScript, Firebase, web development portfolio, mobile app development, HTML, CSS, Node.js" 
+      />
+      <meta name="author" content="Clark Wheelerv" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+      <meta property="og:title" content="About Me | CWdev" />
+      <meta 
+        property="og:description" 
+        content="Discover my journey into web development, my expertise in front-end technologies like React, and my passion for creating impactful projects." 
+      />
+      <meta property="og:image" content="URL_TO_YOUR_SOCIAL_SHARE_IMAGE" />
+      <meta property="og:url" content="https://cw-dev-01.web.app/about" />
+      <meta property="og:type" content="website" />
+
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="About Me | CWdev" />
+      <meta 
+        name="twitter:description" 
+        content="CWdev | Web Development" 
+      />
+      <meta name="twitter:image" content="URL_TO_YOUR_TWITTER_IMAGE" />
+    </Helmet>
+
+
     <section className='home-page-about'>
        
       <div className='about-text'>
@@ -95,5 +133,7 @@ export default function About() {
       
     
     </section>
+    
+    </>
   )
 }
