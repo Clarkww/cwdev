@@ -29,12 +29,20 @@ import mageInv from './img/mage-inv.png'
 import shapeAttack from './img/shape-attack.png'
 import mageInv2 from './img/mage-inv2.png'
 import youtube from './img/youtube.png'
+import appLab from './img/applab.png'
 
 import froppy from './img/froppy.png'
 
 function App() {
 
   let projects = [
+    {
+      name: 'AppLab',
+      description: 'A conversion of a psd to a responsive website using HTML, CSS and JS',
+      link: 'https://clarkww.github.io/AppLabPsd2Html/',
+      repo: '',
+      img: appLab
+    },
     {
       name: 'Node.js ai Youtube Shorts generator',
       description: 'A personal project, a node.js app that generates youtube shorts using gemini 1.5 to generate the script, google text to speech API to genearte the audio and pixaBay API to source images. This script then puts them together to make a full video',

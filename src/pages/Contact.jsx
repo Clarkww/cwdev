@@ -29,7 +29,7 @@ export default function Contact() {
         <input type="text" placeholder='Name' value={name} onChange={(e) => setName(e.target.value)} />
         <input type="email" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
         <textarea placeholder='Message' value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
-        <input type="submit" value="Send" />
+        <input className='submit-btn' type="submit" value="Send" />
       </form>
     </div>
   );

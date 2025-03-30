@@ -8,6 +8,8 @@ import '../styles/home.css';
 
 import { Helmet } from 'react-helmet';
 
+import phoneImg from '../img/phone.png'
+
 export default function Home({ projects }) {
   let iconSize = 45;
   const canvasRef = useRef(null);
@@ -42,30 +44,34 @@ export default function Home({ projects }) {
   }, [])
 
   const [displayText, setDisplayText] = useState('')
-  // const [glitchText, setGlitchText] = useState('')
+  let lastestProjectsHeadingText = 'Latest Projects'
+  let [isCursorVisible, setIsCursorVisible] = useState(true)
 
-  let lastestProjectsHeadingText = 'Latest Projects';
-
-  // let [displayTextInputBarClassName, setDisplayTextInputBarClassName] = useState('hide-text-input-bar');
-
-  let [isCursorVisible, setIsCursorVisible] = useState(true);
+  const { ref: textRef, inView: textInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  })
 
   useEffect(() => {
-    let i = 0;
-    const timer = setInterval(() => {
-      if (i < lastestProjectsHeadingText.length ) {
-        console.log(i);
-        // console.log(lastestProjectsHeadingText[i -1]);
-        setDisplayText((prev) => prev + lastestProjectsHeadingText[i - 1])
+    if(textInView){
+      let i = 0;
+      const timer = setInterval(() => {
+        if (i < lastestProjectsHeadingText.length ) {
+          console.log(i);
+          // console.log(lastestProjectsHeadingText[i -1]);
+          setDisplayText((prev) => prev + lastestProjectsHeadingText[i - 1])
+  
+  
+          i++;
+        } else {
+          clearInterval(timer);
+        }
+      }, 400)
+  
+      return () => clearInterval(timer); // Cleanup interval on component unmount
 
+    }
 
-        i++;
-      } else {
-        clearInterval(timer);
-      }
-    }, 400)
-
-    return () => clearInterval(timer); // Cleanup interval on component unmount
   }, [lastestProjectsHeadingText]);
 
   useEffect(() => {
@@ -116,6 +122,48 @@ export default function Home({ projects }) {
       <main>
         <section className='home-page-hero' style={{ position: 'relative', overflow: 'hidden' }}>
           <canvas ref={canvasRef} style={{ position: 'absolute', zIndex: 0, width: '100%', height: '100%' }} />
+
+          {/* Add the floating phone */}
+          <motion.div 
+            className="floating-phone"
+            style={{
+              position: 'absolute',
+              top: '10%',
+              transform: 'translateY(-50%)',
+              zIndex: 1,
+              width: '150px', // Adjust size as needed
+              height: 'auto'
+            }}
+            initial={{
+              left: '-150px', // Start off-screen to the left
+              opacity: 1
+            }}
+            animate={{
+              left: '100vw', // Move all the way past the right edge
+
+              rotate: [280, 10, 700], // Rotate back and forth
+              // opacity: [0, 1, 1, 0] // Fade in and out
+            }}
+            transition={{
+              duration: 70, // Very slow drift
+              ease: "linear",
+              repeat: Infinity
+            }}
+          >
+            <img 
+              src={phoneImg} 
+              alt="Smartphone illustration" 
+              style={{
+                width: '100%',
+                height: 'auto',
+                filter: 'drop-shadow(0 0 10px rgba(255,255,255,0.3))'
+              }}
+            />
+          </motion.div>
+
+
+
+
           <div className='hero-text' style={{ position: 'relative', zIndex: 2 }}>
             <motion.h2
               initial={{ opacity: 0 }}

@@ -175,6 +175,9 @@ nav ul li:hover {
     visibility: visible;
     opacity: 1;
     width: 100%;
+    /* display: flex; */
+    border-radius: 80px;
+    margin: 0 40px;
     /* other styles */
   }
   
@@ -194,12 +197,16 @@ nav ul li:hover {
 
 .mobile-nav ul {
     width: 100%;
+    background-color: rgba(58, 58, 58, 0.267);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    overflow: hidden;
 }
 
 /* first child of .mobile-nav ul */
 
 .mobile-nav ul li:first-child {
-    border-top: 1px solid rgb(72, 182, 76);
+    /* border-top: 1px solid rgb(72, 182, 76); */
 }
 
 .mobile-nav ul li {
@@ -207,7 +214,7 @@ nav ul li:hover {
     display: block;
     padding: 0.4rem;
     text-align: center;
-    border-bottom: 1px solid rgb(72, 182, 76)
+    border-bottom: 1px solid rgba(72, 182, 76, 0.336);
     /* width: 100%; */
     
 }
@@ -741,15 +748,22 @@ h2 {
 }
 
 .form-container input::placeholder {
-  color: lime; /* Change this to your desired color */
+  color: grey; /* Change this to your desired color */
 }
 
 .form-container textarea::placeholder {
-  color: lime; /* Change this to your desired color */
+  color: grey; /* Change this to your desired color */
 }
 
 
-
+.submit-btn input{
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #FFCA28;
+  color: black;
+  border: none;
+  cursor: pointer;
+}
 .text {
   color: white;
 }

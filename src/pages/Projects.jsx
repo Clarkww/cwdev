@@ -19,6 +19,13 @@ export default function Projects( {projects} ) {
               <div className="project-info">
                 <h2>{project.name}</h2>
                 <p>{project.description}</p>
+                <div className="tags">
+
+                {project.technologies.map((tech, i) => (
+                    <span key={i} className="tag">{tech}</span>
+                  ))}
+                  
+                </div>
                 <div className="links">
                   <a href={project.link} target='_blank'>View</a>
                   <br />
