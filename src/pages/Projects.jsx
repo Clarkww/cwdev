@@ -21,9 +21,7 @@ export default function Projects( {projects} ) {
                 <p>{project.description}</p>
                 <div className="tags">
 
-                {project.technologies.map((tech, i) => (
-                    <span key={i} className="tag">{tech}</span>
-                  ))}
+
                   
                 </div>
                 <div className="links">

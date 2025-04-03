@@ -72,7 +72,7 @@ export default function Home({ projects }) {
 
     }
 
-  }, [lastestProjectsHeadingText]);
+  }, [textInView, lastestProjectsHeadingText]);
 
   useEffect(() => {
     let count = 0;
@@ -150,6 +150,7 @@ export default function Home({ projects }) {
               repeat: Infinity
             }}
           >
+            
             <img 
               src={phoneImg} 
               alt="Smartphone illustration" 
@@ -207,14 +208,14 @@ export default function Home({ projects }) {
 
         <section className='latest-projects'>
 
-          <h2 className='home-page-late-proj-text'>
+          <motion.h2 ref={textRef} className='home-page-late-proj-text'>
             
             {displayText}<span className={`${isCursorVisible ? 'blinking-cursor' : 'hide-text-input-bar'}`}>|</span>
 
-          </h2>
+          </motion.h2>
 
 
-          <div className="projects-container">
+          <div className="projects-container-home">
           {projects.slice(0, 3).map((project, index) => {
             const { ref, inView, entry } = useInView({
               triggerOnce: false,
